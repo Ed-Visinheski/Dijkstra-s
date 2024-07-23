@@ -1,0 +1,3 @@
+/Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug/CMakeFiles/djisktra.dir
+/Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug/CMakeFiles/rebuild_cache.dir
