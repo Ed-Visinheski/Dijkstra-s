@@ -285,6 +285,9 @@ void NodeWindow::drawCircle(int centerX, int centerY, int radius) {
 void NodeWindow::Reset() {
     clearScreen();
     viewerDistance = 10.0f;
+    angleY = 1.0f;
+    angleZ = 10.0f;
+    angleX = 1.0f;
     currentNodeIndex = 0;
     currentLinksIndex = 0;
     currentIndex = 0;
