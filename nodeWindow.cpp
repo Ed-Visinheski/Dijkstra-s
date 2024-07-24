@@ -28,29 +28,24 @@ void NodeWindow::setValues(SDL_Renderer* renderer, const std::vector<Node*>& nod
     this->angleZ = angleZ;
 }
 
-// Destructor to clean up resources if needed
 NodeWindow::~NodeWindow() {}
 
-// Update the rotation angles for 3D rendering
 void NodeWindow::updateAngles(float x, float y, float z) {
     angleX = x;
     angleY = y;
     angleZ = z;
 }
 
-// Clear the screen with a white background
 void NodeWindow::clearScreen() {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
 }
 
-// Main drawing function to visualize the graph
 void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*, std::vector<Node*>>>& visited, bool begin) {
     clearScreen();
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 100);
 
-    // Draw nodes gradually over time
     if (currentNodeIndex < nodeList.size()) {
         Node* currentNode = nodeList[currentNodeIndex];
         if (std::find(completedNodeList.begin(), completedNodeList.end(), currentNode) == completedNodeList.end()) {
@@ -63,7 +58,6 @@ void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     drawNodes(route.front(), route.back());
 
-    // Draw links after nodes are drawn
     if (currentNodeIndex >= nodeList.size()) {
         if (currentLinksIndex < nodeList.size()) {
             Node* currentNode = nodeList[currentLinksIndex];
@@ -78,7 +72,6 @@ void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*
         drawStartLinks();
     }
 
-    // Draw visited nodes and final path if beginning animation is complete
     if (begin && currentLinksIndex >= nodeList.size()) {
         if (currentIndex < visited.size()) {
             auto& [currentNode, neighbors] = visited[currentIndex];
@@ -111,7 +104,7 @@ void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*
     SDL_RenderPresent(renderer);
 }
 
-// Draw links between the nodes that have been visited
+
 void NodeWindow::drawStartLinks() {
     for (const auto& node : completedLinksList) {
         auto pos3D = node->get3DPosition();
