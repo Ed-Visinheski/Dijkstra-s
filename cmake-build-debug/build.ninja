@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: djisktra
+# Project: dijkstra
 # Configurations: Debug
 # =============================================================================
 
@@ -39,74 +39,74 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug/
+cmake_ninja_workdir = /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target djisktra
+# Object build statements for EXECUTABLE target dijkstra
 
 
 #############################################
-# Order-only phony target for djisktra
+# Order-only phony target for dijkstra
 
-build cmake_object_order_depends_target_djisktra: phony || CMakeFiles/djisktra.dir
+build cmake_object_order_depends_target_dijkstra: phony || CMakeFiles/dijkstra.dir
 
-build CMakeFiles/djisktra.dir/map.cpp.o: CXX_COMPILER__djisktra_unscanned_Debug /Users/EdVisinheski/CLionProjects/djisktra/map.cpp || cmake_object_order_depends_target_djisktra
-  DEP_FILE = CMakeFiles/djisktra.dir/map.cpp.o.d
+build CMakeFiles/dijkstra.dir/map.cpp.o: CXX_COMPILER__dijkstra_unscanned_Debug /Users/EdVisinheski/CLionProjects/dijkstra/map.cpp || cmake_object_order_depends_target_dijkstra
+  DEP_FILE = CMakeFiles/dijkstra.dir/map.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.30.5/include/SDL2 -I/opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2
-  OBJECT_DIR = CMakeFiles/djisktra.dir
-  OBJECT_FILE_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
+  OBJECT_FILE_DIR = CMakeFiles/dijkstra.dir
 
-build CMakeFiles/djisktra.dir/main.cpp.o: CXX_COMPILER__djisktra_unscanned_Debug /Users/EdVisinheski/CLionProjects/djisktra/main.cpp || cmake_object_order_depends_target_djisktra
-  DEP_FILE = CMakeFiles/djisktra.dir/main.cpp.o.d
+build CMakeFiles/dijkstra.dir/main.cpp.o: CXX_COMPILER__dijkstra_unscanned_Debug /Users/EdVisinheski/CLionProjects/dijkstra/main.cpp || cmake_object_order_depends_target_dijkstra
+  DEP_FILE = CMakeFiles/dijkstra.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.30.5/include/SDL2 -I/opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2
-  OBJECT_DIR = CMakeFiles/djisktra.dir
-  OBJECT_FILE_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
+  OBJECT_FILE_DIR = CMakeFiles/dijkstra.dir
 
-build CMakeFiles/djisktra.dir/node.cpp.o: CXX_COMPILER__djisktra_unscanned_Debug /Users/EdVisinheski/CLionProjects/djisktra/node.cpp || cmake_object_order_depends_target_djisktra
-  DEP_FILE = CMakeFiles/djisktra.dir/node.cpp.o.d
+build CMakeFiles/dijkstra.dir/node.cpp.o: CXX_COMPILER__dijkstra_unscanned_Debug /Users/EdVisinheski/CLionProjects/dijkstra/node.cpp || cmake_object_order_depends_target_dijkstra
+  DEP_FILE = CMakeFiles/dijkstra.dir/node.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.30.5/include/SDL2 -I/opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2
-  OBJECT_DIR = CMakeFiles/djisktra.dir
-  OBJECT_FILE_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
+  OBJECT_FILE_DIR = CMakeFiles/dijkstra.dir
 
-build CMakeFiles/djisktra.dir/route.cpp.o: CXX_COMPILER__djisktra_unscanned_Debug /Users/EdVisinheski/CLionProjects/djisktra/route.cpp || cmake_object_order_depends_target_djisktra
-  DEP_FILE = CMakeFiles/djisktra.dir/route.cpp.o.d
+build CMakeFiles/dijkstra.dir/route.cpp.o: CXX_COMPILER__dijkstra_unscanned_Debug /Users/EdVisinheski/CLionProjects/dijkstra/route.cpp || cmake_object_order_depends_target_dijkstra
+  DEP_FILE = CMakeFiles/dijkstra.dir/route.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.30.5/include/SDL2 -I/opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2
-  OBJECT_DIR = CMakeFiles/djisktra.dir
-  OBJECT_FILE_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
+  OBJECT_FILE_DIR = CMakeFiles/dijkstra.dir
 
-build CMakeFiles/djisktra.dir/nodeWindow.cpp.o: CXX_COMPILER__djisktra_unscanned_Debug /Users/EdVisinheski/CLionProjects/djisktra/nodeWindow.cpp || cmake_object_order_depends_target_djisktra
-  DEP_FILE = CMakeFiles/djisktra.dir/nodeWindow.cpp.o.d
+build CMakeFiles/dijkstra.dir/nodeWindow.cpp.o: CXX_COMPILER__dijkstra_unscanned_Debug /Users/EdVisinheski/CLionProjects/dijkstra/nodeWindow.cpp || cmake_object_order_depends_target_dijkstra
+  DEP_FILE = CMakeFiles/dijkstra.dir/nodeWindow.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.30.5/include/SDL2 -I/opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2
-  OBJECT_DIR = CMakeFiles/djisktra.dir
-  OBJECT_FILE_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
+  OBJECT_FILE_DIR = CMakeFiles/dijkstra.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target djisktra
+# Link build statements for EXECUTABLE target dijkstra
 
 
 #############################################
-# Link the executable djisktra
+# Link the executable dijkstra
 
-build djisktra: CXX_EXECUTABLE_LINKER__djisktra_Debug CMakeFiles/djisktra.dir/map.cpp.o CMakeFiles/djisktra.dir/main.cpp.o CMakeFiles/djisktra.dir/node.cpp.o CMakeFiles/djisktra.dir/route.cpp.o CMakeFiles/djisktra.dir/nodeWindow.cpp.o | /opt/homebrew/Cellar/sdl2/2.30.5/lib/libSDL2.dylib /opt/homebrew/Cellar/sdl2_ttf/2.22.0/lib/libSDL2_ttf.dylib
+build dijkstra: CXX_EXECUTABLE_LINKER__dijkstra_Debug CMakeFiles/dijkstra.dir/map.cpp.o CMakeFiles/dijkstra.dir/main.cpp.o CMakeFiles/dijkstra.dir/node.cpp.o CMakeFiles/dijkstra.dir/route.cpp.o CMakeFiles/dijkstra.dir/nodeWindow.cpp.o | /opt/homebrew/Cellar/sdl2/2.30.5/lib/libSDL2.dylib /opt/homebrew/Cellar/sdl2_ttf/2.22.0/lib/libSDL2_ttf.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   LINK_LIBRARIES = /opt/homebrew/Cellar/sdl2/2.30.5/lib/libSDL2.dylib  /opt/homebrew/Cellar/sdl2_ttf/2.22.0/lib/libSDL2_ttf.dylib
-  OBJECT_DIR = CMakeFiles/djisktra.dir
+  OBJECT_DIR = CMakeFiles/dijkstra.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = djisktra
-  TARGET_PDB = djisktra.dbg
+  TARGET_FILE = dijkstra
+  TARGET_PDB = dijkstra.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -117,7 +117,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/EdVisinheski/CLionProjects/djisktra -B/Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug
+  COMMAND = cd /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/EdVisinheski/CLionProjects/dijkstra -B/Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -133,9 +133,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug
+# Folder: /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug
 
-build all: phony djisktra
+build all: phony dijkstra
 
 # =============================================================================
 # Built-in targets
@@ -144,14 +144,14 @@ build all: phony djisktra
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Users/EdVisinheski/CLionProjects/djisktra/CMakeLists.txt /opt/homebrew/lib/cmake/SDL2/sdl2-config-version.cmake /opt/homebrew/lib/cmake/SDL2/sdl2-config.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Users/EdVisinheski/CLionProjects/dijkstra/CMakeLists.txt /opt/homebrew/lib/cmake/SDL2/sdl2-config-version.cmake /opt/homebrew/lib/cmake/SDL2/sdl2-config.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Users/EdVisinheski/CLionProjects/djisktra/CMakeLists.txt /opt/homebrew/lib/cmake/SDL2/sdl2-config-version.cmake /opt/homebrew/lib/cmake/SDL2/sdl2-config.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Users/EdVisinheski/CLionProjects/dijkstra/CMakeLists.txt /opt/homebrew/lib/cmake/SDL2/sdl2-config-version.cmake /opt/homebrew/lib/cmake/SDL2/sdl2-config.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config-version.cmake /opt/homebrew/lib/cmake/SDL2_ttf/sdl2_ttf-config.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################

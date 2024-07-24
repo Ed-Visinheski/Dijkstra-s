@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/EdVisinheski/CLionProjects/djisktra -B /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/EdVisinheski/CLionProjects/dijkstra -B /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug
 -- Configuring done (0.0s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/EdVisinheski/CLionProjects/djisktra/cmake-build-debug
+-- Build files have been written to: /Users/EdVisinheski/CLionProjects/dijkstra/cmake-build-debug

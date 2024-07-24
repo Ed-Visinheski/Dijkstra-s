@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(djisktra)
+project(dijkstra)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -13,7 +13,7 @@ set(TTF_INCLUDE_DIR /opt/homebrew/Cellar/sdl2_ttf/2.22.0/include/SDL2)
 set(TTF_LIBRARY /opt/homebrew/Cellar/sdl2_ttf/2.22.0/lib/libSDL2_ttf.dylib)
 
 
-add_executable(djisktra
+add_executable(dijkstra
         map.cpp
         node.h
         main.cpp
@@ -23,4 +23,4 @@ add_executable(djisktra
         nodeWindow.h)
 
 include_directories(${SDL2_INCLUDE_DIR} ${TTF_INCLUDE_DIR})
-target_link_libraries(djisktra ${SDL2_LIBRARY} ${TTF_LIBRARY})
+target_link_libraries(dijkstra ${SDL2_LIBRARY} ${TTF_LIBRARY})
