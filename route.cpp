@@ -6,45 +6,50 @@
 #include <queue>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
-
-struct NodeCost{
+struct NodeCost {
     Node* node;
-    double cost ;
+    double cost;
 
-    bool operator>(const NodeCost& other) const{
+    bool operator>(const NodeCost& other) const {
         return cost > other.cost;
     }
 };
 
-Route::Route(){
-}
+Route::Route() = default;
 
 Route::~Route() {
-    std::cout << "Route destructor" << std::endl;
     route.clear();
 }
 
+//Determines shortest path using Dijkstra's algorithm
 std::vector<Node*> Route::routeCalc(Node* startNode, Node* endNode) {
     route.clear();
     visitedList.clear();
+
     std::priority_queue<NodeCost, std::vector<NodeCost>, std::greater<>> priorityQueue;
     std::unordered_map<Node*, double> distances;
     std::unordered_map<Node*, Node*> previousNodes;
     std::unordered_set<Node*> visited;
 
-    distances[startNode] = 0;
-    priorityQueue.push({startNode, 0});
+    distances[startNode] = 0.0;
+    priorityQueue.push({startNode, 0.0});
 
     while (!priorityQueue.empty()) {
         Node* currentNode = priorityQueue.top().node;
         double currentCost = priorityQueue.top().cost;
         priorityQueue.pop();
 
-        if (visited.find(currentNode) != visited.end()) {continue;}
-        visited.insert(currentNode);
-        if (currentNode == endNode) {break;}
+        if (!visited.insert(currentNode).second) {
+            continue;
+        }
+        if (currentNode == endNode) {
+            break;
+        }
+        const auto& nodes = currentNode->getNodeVertex();
 
+        //Retains insertion order
         auto it = std::find_if(visitedList.begin(), visitedList.end(),
                                [currentNode](const std::pair<Node*, std::vector<Node*>>& entry) {
                                    return entry.first == currentNode;
@@ -55,63 +60,45 @@ std::vector<Node*> Route::routeCalc(Node* startNode, Node* endNode) {
             it = std::prev(visitedList.end());
         }
 
-        for (Node* neighbour : currentNode->getNodeVertex()) {
-            if (visited.find(neighbour) != visited.end()) {continue;}
-
-            if (std::find(it->second.begin(), it->second.end(),
-                          neighbour) == it->second.end()) {
-                it->second.push_back(neighbour);
+        for (Node* nextNode : nodes) {
+            if (visited.find(nextNode) != visited.end()) {
+                continue;
             }
 
-            double newCost = currentCost + getDistance3D(*currentNode, *neighbour);
-            if (distances.find(neighbour) == distances.end() || newCost < distances[neighbour]) {
-                distances[neighbour] = newCost;
-                previousNodes[neighbour] = currentNode;
-                priorityQueue.push({neighbour, newCost});
+            double newCost = currentCost + getDistance3D(*currentNode, *nextNode);
+
+            if (distances.find(nextNode) == distances.end() || newCost < distances[nextNode]) {
+                distances[nextNode] = newCost;
+                previousNodes[nextNode] = currentNode;
+                priorityQueue.push({nextNode, newCost});
+            }
+
+            if (std::find(it->second.begin(), it->second.end(), nextNode) == it->second.end()) {
+                it->second.push_back(nextNode);
             }
         }
     }
 
-    if (previousNodes.find(endNode) == previousNodes.end()) {return {};}
-    Node* step = endNode;
-    while (step != nullptr) {
+    if (previousNodes.find(endNode) == previousNodes.end()) {
+        return {};
+    }
+    for (Node* step = endNode; step != nullptr; step = previousNodes[step]) {
         route.push_back(step);
-        if (step == startNode) {
-            break;
-        }
-        auto it = previousNodes.find(step);
-        if (it == previousNodes.end()) {
-            std::cerr << "No predecessor found for " << step->getNodeName() << std::endl;
-            break;
-        }
-        step = it->second;
     }
-
     std::reverse(route.begin(), route.end());
-    std::cout<<"Route"<<std::endl;
-    for(auto x : route){
-        std::cout<< x->getNodeName()<<std::endl;
-    }
-
     return route;
 }
 
-std::vector<Node*>& Route::getRoute() {
-    return route;
-}
 
-std::vector<std::pair<Node*,std::vector<Node*>>>& Route::getVisited(){
+std::vector<std::pair<Node*, std::vector<Node*>>>& Route::getVisited() {
     return visitedList;
 }
 
-void Route::viewRoute() {
-    for (auto& x : route) {
-        std::cout << x->getNodeName() << std::endl;
-    }
-}
-
-double Route::getDistance3D(Node nodeA, Node nodeB){
+// Calculates the 3D distance between 2 nodes
+double Route::getDistance3D(const Node& nodeA, const Node& nodeB) const {
     auto posA = nodeA.get3DPosition();
     auto posB = nodeB.get3DPosition();
-    return (std::sqrt(std::pow((posB[0] - posA[0]), 2) + std::pow((posB[1] - posA[1]), 2)+ std::pow((posB[2] - posA[2]), 2)));
+    return std::sqrt(std::pow((posB[0] - posA[0]), 2) +
+                     std::pow((posB[1] - posA[1]), 2) +
+                     std::pow((posB[2] - posA[2]), 2));
 }

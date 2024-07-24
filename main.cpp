@@ -5,7 +5,6 @@
 #include "nodeWindow.h"
 #include "route.h"
 #include <string>
-#include <sstream>
 
 SDL_Texture* renderText(SDL_Renderer* renderer, const std::string &message, TTF_Font* font, SDL_Color color) {
     SDL_Surface* surf = TTF_RenderText_Blended(font, message.c_str(), color);
@@ -22,6 +21,11 @@ SDL_Texture* renderText(SDL_Renderer* renderer, const std::string &message, TTF_
 }
 
 int main() {
+
+    float angleX = 1.0f;
+    float angleY = 1.0f;
+    float angleZ= 10.0f;
+
     if (TTF_Init() != 0) {
         std::cerr << "TTF_Init Error: " << TTF_GetError() << std::endl;
         return 1;
@@ -30,21 +34,12 @@ int main() {
     NodeWindow nodeWindow;
     SDL_Event event;
 
-    int screenWidth = 1200;
-    int screenHeight = 800;
-    float fov = 300.0f;
-    float viewerDistance = 10.0f;
-
-    float angleX = 1.0f;
-    float angleY = 1.0f;
-    float angleZ = 10.0f;
-
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return 1;
     }
 
-    SDL_Window* window = SDL_CreateWindow("Graph Visualization", 100, 100, screenWidth, screenHeight, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("Graph Visualization", 100, 100, 1200, 800, SDL_WINDOW_SHOWN);
     if (window == nullptr) {
         std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
         SDL_Quit();
@@ -83,8 +78,8 @@ int main() {
     auto selection = map.genSelection();
     auto nodeRoutePath = route.routeCalc(selection[0], selection[1]);
     auto visitedList = route.getVisited();
-    nodeWindow.setValues(renderer, nodeList, screenWidth, screenHeight, fov, viewerDistance, angleX, angleY, angleZ);
-
+    nodeWindow.setValues(renderer, nodeList, angleX, angleY, angleZ);
+    float viewerDis = 0;
     while (!quit) {
         while (SDL_PollEvent(&event)) {
             switch(event.type) {
@@ -120,6 +115,14 @@ int main() {
                             case SDLK_SPACE:
                                 moveAxis = !moveAxis;
                                 break;
+                            case SDLK_DOWN:
+                                viewerDis = nodeWindow.getViewerDistance() + 2.5;
+                                nodeWindow.setViewerDistance(viewerDis);
+                                break;
+                            case SDLK_UP:
+                                viewerDis = nodeWindow.getViewerDistance() - 2.5;
+                                nodeWindow.setViewerDistance(viewerDis);
+                                break;
                             case SDLK_RIGHT:
                                 begin = true;
                                 break;
@@ -130,7 +133,7 @@ int main() {
                                 selection = map.genSelection();
                                 nodeRoutePath = route.routeCalc(selection[0], selection[1]);
                                 visitedList = route.getVisited();
-                                nodeWindow.setValues(renderer, nodeList, screenWidth, screenHeight, fov, viewerDistance, angleX, angleY, angleZ);
+                                nodeWindow.setValues(renderer, nodeList,angleX, angleY, angleZ);
                                 begin = false;
                                 break;
                         }
@@ -154,14 +157,14 @@ int main() {
             }
         }
         if (inputMode) {
+            int iW, iH;
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
             SDL_Color whiteColor = {255, 255, 255, 255};
             SDL_Texture* inputTexture = renderText(renderer, "Enter number of nodes: " + inputText, font, whiteColor);
-            int iW, iH;
-            SDL_QueryTexture(inputTexture, NULL, NULL, &iW, &iH);
+            SDL_QueryTexture(inputTexture, nullptr, nullptr, &iW, &iH);
             SDL_Rect inputRect = {50, 50, iW, iH};
-            SDL_RenderCopy(renderer, inputTexture, NULL, &inputRect);
+            SDL_RenderCopy(renderer, inputTexture, nullptr, &inputRect);
             SDL_DestroyTexture(inputTexture);
             SDL_RenderPresent(renderer);
         } else {

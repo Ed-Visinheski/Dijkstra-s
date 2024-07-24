@@ -70,7 +70,7 @@ void Map::viewNodesPos3D() {
     }
 }
 
-void Map::viewLinks() {
+void Map::viewLinks() const {
     for (const auto& n : nodeList) {
         std::cout << "=====================" << '\n';
         std::cout << n->getNodeName() << '\n';

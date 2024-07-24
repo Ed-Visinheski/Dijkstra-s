@@ -19,7 +19,7 @@ public:
     bool isNodeInNeighbourList(Node *node, const std::vector<Node *> &vertexList);
     const std::array<Node*, 2> genSelection();
     void genNeighbours();
-    void viewLinks();
+    void viewLinks() const;
     std::vector<Node*>&getNodeList();
     void viewNodesPos3D();
     void genNodes3D();

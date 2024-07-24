@@ -3,18 +3,20 @@
 #include <algorithm>
 #include <utility>
 #include <functional>
+#include <cmath>
 
-
+// Static member initialization
 size_t NodeWindow::currentNodeIndex = 0;
 size_t NodeWindow::currentLinksIndex = 0;
 size_t NodeWindow::currentIndex = 0;
 size_t NodeWindow::innerIndex = 0;
 
-NodeWindow::NodeWindow(){}
+NodeWindow::NodeWindow() :
+        renderer(nullptr), screenWidth(1200), screenHeight(800),
+        fov(300.0f), viewerDistance(10.0f),
+        angleX(1.0f), angleY(1.0f), angleZ(10.0f) {}
 
-
-void NodeWindow::setValues(SDL_Renderer* renderer, const std::vector<Node*>& nodeList, int screenWidth, int screenHeight,
-                           float fov, float viewerDistance, float angleX, float angleY, float angleZ) {
+void NodeWindow::setValues(SDL_Renderer* renderer, const std::vector<Node*>& nodeList, float angleX, float angleY, float angleZ) {
     this->renderer = renderer;
     this->nodeList = nodeList;
     this->screenWidth = screenWidth;
@@ -26,58 +28,63 @@ void NodeWindow::setValues(SDL_Renderer* renderer, const std::vector<Node*>& nod
     this->angleZ = angleZ;
 }
 
-NodeWindow::~NodeWindow() {
+// Destructor to clean up resources if needed
+NodeWindow::~NodeWindow() {}
 
-}
-
-void NodeWindow::updateAngles(float x, float y, float z){
+// Update the rotation angles for 3D rendering
+void NodeWindow::updateAngles(float x, float y, float z) {
     angleX = x;
     angleY = y;
     angleZ = z;
 }
 
-void NodeWindow::clearScreen(){
+// Clear the screen with a white background
+void NodeWindow::clearScreen() {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
 }
 
+// Main drawing function to visualize the graph
 void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*, std::vector<Node*>>>& visited, bool begin) {
     clearScreen();
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 100);
+
+    // Draw nodes gradually over time
     if (currentNodeIndex < nodeList.size()) {
-        Node *currentNode = nodeList[currentNodeIndex];
+        Node* currentNode = nodeList[currentNodeIndex];
         if (std::find(completedNodeList.begin(), completedNodeList.end(), currentNode) == completedNodeList.end()) {
             completedNodeList.push_back(currentNode);
         }
         currentNodeIndex++;
         SDL_Delay(60);
     }
+
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     drawNodes(route.front(), route.back());
 
-
-    if(currentNodeIndex >= nodeList.size()) {
+    // Draw links after nodes are drawn
+    if (currentNodeIndex >= nodeList.size()) {
         if (currentLinksIndex < nodeList.size()) {
-            Node *currentNode = nodeList[currentLinksIndex];
+            Node* currentNode = nodeList[currentLinksIndex];
             if (std::find(completedLinksList.begin(), completedLinksList.end(), currentNode) ==
                 completedLinksList.end()) {
                 completedLinksList.push_back(currentNode);
             }
             currentLinksIndex++;
             SDL_Delay(60);
-
         }
         SDL_SetRenderDrawColor(renderer, 125, 125, 125, 175);
         drawStartLinks();
     }
 
+    // Draw visited nodes and final path if beginning animation is complete
     if (begin && currentLinksIndex >= nodeList.size()) {
         if (currentIndex < visited.size()) {
-            auto &[currentNode, neighbors] = visited[currentIndex];
+            auto& [currentNode, neighbors] = visited[currentIndex];
             if (innerIndex < neighbors.size()) {
                 auto it = std::find_if(completedVisitedList.begin(), completedVisitedList.end(),
-                                       [&](const std::pair<Node *, std::vector<Node *>> &entry) {
+                                       [&](const std::pair<Node*, std::vector<Node*>>& entry) {
                                            return entry.first == currentNode;
                                        });
 
@@ -102,14 +109,10 @@ void NodeWindow::drawGraph(std::vector<Node*> route, std::vector<std::pair<Node*
         }
     }
     SDL_RenderPresent(renderer);
-
 }
 
-
-
-
-
-void NodeWindow::drawStartLinks(){
+// Draw links between the nodes that have been visited
+void NodeWindow::drawStartLinks() {
     for (const auto& node : completedLinksList) {
         auto pos3D = node->get3DPosition();
         float x = pos3D[0];
@@ -141,6 +144,7 @@ void NodeWindow::drawStartLinks(){
     }
 }
 
+// Draw edges between nodes for the provided path
 void NodeWindow::drawEdgesBetweenNodes(const std::vector<Node*>& nodes) {
     for (auto it = nodes.begin(); it != std::prev(nodes.end()); it++) {
         auto currPos3D = (*it)->get3DPosition();
@@ -166,7 +170,8 @@ void NodeWindow::drawEdgesBetweenNodes(const std::vector<Node*>& nodes) {
     }
 }
 
-void NodeWindow::drawEdgesBetweenVisitedNodes(const std::vector<std::pair<Node*,std::vector<Node*>>>& visited) {
+// Draw edges between visited nodes for visualization
+void NodeWindow::drawEdgesBetweenVisitedNodes(const std::vector<std::pair<Node*, std::vector<Node*>>>& visited) {
     for (const auto& pair : visited) {
         auto pos3D = pair.first->get3DPosition();
         float x = pos3D[0];
@@ -197,14 +202,14 @@ void NodeWindow::drawEdgesBetweenVisitedNodes(const std::vector<std::pair<Node*,
     }
 }
 
-
-
-void NodeWindow::drawNodes(Node* start = nullptr, Node* end = nullptr){
+// Draw the nodes in the graph
+void NodeWindow::drawNodes(Node* start = nullptr, Node* end = nullptr) {
     for (const auto& node : completedNodeList) {
-        if(node == start || node == end){
+        if (node == start || node == end) {
             SDL_SetRenderDrawColor(renderer, 50, 50, 50, 175);
+        } else {
+            SDL_SetRenderDrawColor(renderer, 175, 175, 175, 175);
         }
-        else{SDL_SetRenderDrawColor(renderer, 175, 175, 175, 175);}
         auto nodePos3D = node->get3DPosition();
         float x = nodePos3D[0];
         float y = nodePos3D[1];
@@ -217,18 +222,21 @@ void NodeWindow::drawNodes(Node* start = nullptr, Node* end = nullptr){
         auto projected = project3DTo2D(x, y, z);
 
         int radius = 15;
-        drawCircle(renderer, projected.first, projected.second, radius);
+        drawCircle(projected.first, projected.second, radius);
     }
 }
 
-std::pair<int, int> NodeWindow::project3DTo2D(float x, float y, float z) {
+// Project 3D coordinates to 2D screen coordinates
+std::pair<int, int> NodeWindow::project3DTo2D(float x, float y, float z) const {
     float factor = fov / (viewerDistance + z);
     int x2D = static_cast<int>(x * factor + screenWidth / 2);
     int y2D = static_cast<int>(y * factor + screenHeight / 2);
     return {x2D, y2D};
 }
 
-void NodeWindow::rotateX(float& y, float& z, float angle) {
+// These 3 methods are used to transform the mouse position into
+//rotation in their respective directions
+void NodeWindow::rotateX(float& y, float& z, float angle) const {
     float rad = angle * M_PI / 180.0;
     float cosA = cos(rad);
     float sinA = sin(rad);
@@ -238,7 +246,7 @@ void NodeWindow::rotateX(float& y, float& z, float angle) {
     z = znew;
 }
 
-void NodeWindow::rotateY(float& x, float& z, float angle) {
+void NodeWindow::rotateY(float& x, float& z, float angle) const {
     float rad = angle * M_PI / 180.0;
     float cosA = cos(rad);
     float sinA = sin(rad);
@@ -248,7 +256,7 @@ void NodeWindow::rotateY(float& x, float& z, float angle) {
     z = znew;
 }
 
-void NodeWindow::rotateZ(float& x, float& y, float angle) {
+void NodeWindow::rotateZ(float& x, float& y, float angle) const {
     float rad = angle * M_PI / 180.0;
     float cosA = cos(rad);
     float sinA = sin(rad);
@@ -258,11 +266,17 @@ void NodeWindow::rotateZ(float& x, float& y, float angle) {
     y = ynew;
 }
 
+// Set a new viewer distance for perspective projection
 void NodeWindow::setViewerDistance(float newViewerDistance) {
     viewerDistance = newViewerDistance;
 }
 
-void NodeWindow::drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius) {
+float NodeWindow::getViewerDistance() {
+    return viewerDistance;
+}
+
+// Draws a filled in circle
+void NodeWindow::drawCircle(int centerX, int centerY, int radius) {
     for (int w = 0; w < radius * 2; w++) {
         for (int h = 0; h < radius * 2; h++) {
             int dx = radius - w; // Horizontal offset
@@ -274,25 +288,19 @@ void NodeWindow::drawCircle(SDL_Renderer* renderer, int centerX, int centerY, in
     }
 }
 
-void NodeWindow::Reset(){
+// Reset the window state to initial values
+void NodeWindow::Reset() {
     clearScreen();
+    viewerDistance = 10.0f;
     currentNodeIndex = 0;
     currentLinksIndex = 0;
     currentIndex = 0;
     innerIndex = 0;
     renderer = nullptr;
     nodeList.clear();
-    screenWidth = 0;
-    screenHeight = 0;
-    fov = 0.0f;
-    viewerDistance = 0.0f;
-    angleX = 0.0f;
-    angleY = 0.0f;
-    angleZ = 0.0f;
     visitedLinks.clear();
     completedVisitedList.clear();
     completedNodeList.clear();
     completedLinksList.clear();
 }
-
 

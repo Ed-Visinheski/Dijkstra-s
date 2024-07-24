@@ -17,8 +17,6 @@ public:
 
     ~Route();
 
-    void viewRoute();
-    std::vector<Node*>& getRoute();
     std::vector<std::pair<Node*,std::vector<Node*>>>& getVisited();
 
 
@@ -26,7 +24,7 @@ public:
 
 private:
 
-    double getDistance3D(Node nodeA, Node nodeB);
+    double getDistance3D(const Node& nodeA, const Node& nodeB) const;
 
     std::vector<std::pair<Node* , std::vector<Node*>>> visitedList;
 
