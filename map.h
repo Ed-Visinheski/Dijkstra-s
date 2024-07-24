@@ -14,7 +14,7 @@ private:
     std::vector<Node*> nodeList;
 
 public:
-    Map(int range, int start);
+    Map(int num);
     ~Map();
     bool isNodeInNeighbourList(Node *node, const std::vector<Node *> &vertexList);
     const std::array<Node*, 2> genSelection();
@@ -23,6 +23,7 @@ public:
     std::vector<Node*>&getNodeList();
     void viewNodesPos3D();
     void genNodes3D();
+    void updateNumNodes(int num);
 
 };
 

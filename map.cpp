@@ -8,9 +8,9 @@
 #include <memory>
 
 
-Map::Map(int range, int start) {
+Map::Map(int num) {
     srand(static_cast<unsigned int>(time(0)));
-    num_nodes = rand() % range + start;
+    num_nodes = num;
     genNodes3D();
 }
 
@@ -86,4 +86,8 @@ std::vector<Node*>& Map::getNodeList(){
         std::cout<<x->getNodeName()<< ":" << &x<<std::endl;
     }
     return nodeList;
+}
+
+void Map::updateNumNodes(int num) {
+    num_nodes = num;
 }

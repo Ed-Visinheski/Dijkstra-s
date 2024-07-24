@@ -275,6 +275,7 @@ void NodeWindow::drawCircle(SDL_Renderer* renderer, int centerX, int centerY, in
 }
 
 void NodeWindow::Reset(){
+    clearScreen();
     currentNodeIndex = 0;
     currentLinksIndex = 0;
     currentIndex = 0;
